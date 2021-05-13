@@ -1,6 +1,10 @@
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -15,7 +19,7 @@ import java.sql.ResultSet;
 public class login extends javax.swing.JFrame {
 
   Connection conn =null;
-  Statment stmt = null;
+  Statement stmt = null;
   ResultSet rs = null;
     public login() {
         super ("Login");
@@ -156,7 +160,28 @@ public class login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+              try{
+                  stmt =  conn.createStatement();
+                  String userEmail=mail.getText();
+                  String userPass = password.getText();
+                  
+                  String sql = "SELECT * FROM admin WHERE mail ='"+userEmail+"' && password ='"+userPass+"'";
+                  
+                  rs = stmt.executeQuery(sql);
+                  if(rs.next()){
+                      setVisible(false);
+                      home object = new home();
+                      object.setVisible(true);
+                  }else{
+                      JOptionPane.showMessageDialog(null,"Password or mail is invalid ");
+                  }
+              
+              }catch(HeadlessException | SQLException e){JOptionPane.showMessageDialog(null,e);
+                  
+              }
+              
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void mailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mailActionPerformed
@@ -217,9 +242,5 @@ public class login extends javax.swing.JFrame {
     private javax.swing.JPasswordField password;
     // End of variables declaration//GEN-END:variables
 
-    private static class Statment {
-
-        public Statment() {
-        }
-    }
+   
 }
