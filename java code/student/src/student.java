@@ -117,6 +117,11 @@ public class student extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton1.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-delete-document-30.png")); // NOI18N
         jButton1.setText("Delete");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-search-account-45.png")); // NOI18N
@@ -298,16 +303,16 @@ public class student extends javax.swing.JFrame {
     private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
         try{
             stmt =conn.createStatement();
+            int stdId=Integer.parseInt(idcheck.getText());
             String stdName =name.getText();
             String stdFatherName =fatherName.getText();
             String stdCity = city.getText();
             String stdPhone =phone.getText();
             int stdClass =Integer.parseInt(studentClass.getText());
 
-            String sql = "INSERT INTO STUDENT(stdName,stdFatherName,stdCity,stdPhone,stdClass) VALUES('"+ stdName+"','" +stdFatherName+"','"+stdCity+"','"+stdPhone+"','"+stdClass+"')";
-
+            String sql = "UPDATE STUDENT SET stdName='"+stdName+"',stdFatherName = '"+stdFatherName+"',stdCity='"+stdCity+"',stdPhone='"+stdPhone+"',stdClass='"+stdClass+"' WHERE stdId='"+stdId+"'";
             stmt.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null,"Data is succesfully inserted ");
+            JOptionPane.showMessageDialog(null,"Data is succesfully updated ");
 
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e);
@@ -348,6 +353,23 @@ public class student extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           
+        try{
+            stmt = conn.createStatement();
+            int stdId=Integer.parseInt(idcheck.getText());
+            String sql = "DELETE  FROM STUDENT WHERE stdId = '"+stdId+"' ";
+            stmt.executeUpdate(sql);
+            
+             setVisible(false);
+        showStudents object = new showStudents();
+        object.setVisible(true);
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
