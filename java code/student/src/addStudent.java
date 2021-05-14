@@ -2,6 +2,7 @@
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -92,6 +93,11 @@ public class addStudent extends javax.swing.JFrame {
 
         Submit.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-submit-progress-24.png")); // NOI18N
         Submit.setText("Submit");
+        Submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitActionPerformed(evt);
+            }
+        });
 
         Backbtn.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-go-back-24.png")); // NOI18N
         Backbtn.setText("Back");
@@ -240,6 +246,25 @@ public class addStudent extends javax.swing.JFrame {
         about object = new about();
         object.setVisible(true);
     }//GEN-LAST:event_AboutActionPerformed
+
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+      try{
+          stmt =conn.createStatement();
+          String stdName =name.getText();
+          String stdFatherName =fatherName.getText();
+          String stdCity = city.getText();
+          String stdPhone =phone.getText();
+          int stdClass =Integer.parseInt(studentClass.getText());
+          
+          String sql = "INSERT INTO STUDENT(stdName,stdFatherName,stdCity,stdPhone,stdClass) VALUES('"+ stdName+"','" +stdFatherName+"','"+stdCity+"','"+stdPhone+"','"+stdClass+"')";
+          
+          stmt.executeUpdate(sql);
+           JOptionPane.showMessageDialog(null,"Data is succesfully inserted ");
+          
+      }catch(Exception e){
+          JOptionPane.showMessageDialog(null,e);
+      }
+    }//GEN-LAST:event_SubmitActionPerformed
 
     /**
      * @param args the command line arguments
