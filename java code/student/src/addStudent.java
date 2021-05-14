@@ -26,6 +26,7 @@ public class addStudent extends javax.swing.JFrame {
         super("ADD Student");
         initComponents();
         conn=databaseConnection.connection();
+        
     }
 
     /**
@@ -101,6 +102,11 @@ public class addStudent extends javax.swing.JFrame {
 
         Backbtn.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-go-back-24.png")); // NOI18N
         Backbtn.setText("Back");
+        Backbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackbtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -265,6 +271,14 @@ public class addStudent extends javax.swing.JFrame {
           JOptionPane.showMessageDialog(null,e);
       }
     }//GEN-LAST:event_SubmitActionPerformed
+
+    private void BackbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackbtnActionPerformed
+
+      setVisible(false);
+        home object = new home();
+        object.setVisible(true);
+       
+    }//GEN-LAST:event_BackbtnActionPerformed
 
     /**
      * @param args the command line arguments
