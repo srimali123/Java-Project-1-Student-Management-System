@@ -102,6 +102,11 @@ public class home extends javax.swing.JFrame {
 
         jButton5.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-accessibility-tools-100.png")); // NOI18N
         jButton5.setText("jButton5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-admin-settings-male-100.png")); // NOI18N
         jButton6.setText("jButton6");
@@ -327,6 +332,13 @@ public class home extends javax.swing.JFrame {
                       showAdmin object = new showAdmin();
                       object.setVisible(true);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        setVisible(false);
+                      admin1 object = new admin1();
+                      object.setVisible(true);
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
