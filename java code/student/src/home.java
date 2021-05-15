@@ -94,12 +94,22 @@ public class home extends javax.swing.JFrame {
         jLabel7.setText("Show Students");
 
         jButton4.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-add-administrator-100.png")); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jButton5.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-accessibility-tools-100.png")); // NOI18N
         jButton5.setText("jButton5");
 
         jButton6.setIcon(new javax.swing.ImageIcon("E:\\my projects\\java student management system\\java code\\images\\icons8-admin-settings-male-100.png")); // NOI18N
         jButton6.setText("jButton6");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setFont(new java.awt.Font("Yu Gothic", 0, 18)); // NOI18N
         jLabel5.setText("Add Admin");
@@ -303,6 +313,20 @@ public class home extends javax.swing.JFrame {
                       home object = new home();
                       object.setVisible(true);
     }//GEN-LAST:event_homeActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+                        setVisible(false);
+                      addAdmin object = new addAdmin();
+                      object.setVisible(true);
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+                      setVisible(false);
+                      showAdmin object = new showAdmin();
+                      object.setVisible(true);
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

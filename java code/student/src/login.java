@@ -165,7 +165,7 @@ public class login extends javax.swing.JFrame {
                   String userEmail=mail.getText();
                   String userPass = password.getText();
                   
-                  String sql = "SELECT * FROM admin WHERE mail ='"+userEmail+"' And password ='"+userPass+"'";
+                  String sql = "SELECT * FROM admin WHERE adminMail ='"+userEmail+"' And adminPassword2 ='"+userPass+"'";
                   
                   rs = stmt.executeQuery(sql);
                   if(rs.next()){
